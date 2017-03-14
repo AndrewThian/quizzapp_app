@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', function () {
 
   $.getJSON('/users/' + id, function (data) {
     categoryData = data.map(function (ele, ind) {
-      return [ele.category.name, ele.category_id]
+      return [ele.category.name, ele.category_exp]
     })
     categoryData.unshift(['Category', 'Exp gained'])
     // console.log(categoryData)
