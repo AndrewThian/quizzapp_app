@@ -142,8 +142,8 @@ task :seed_from_opentdb => :environment do
     puts @OPENTB_API_CALL
 
     # get api key
-    API_KEY_REQUEST = HTTParty.get('https://opentdb.com/api_token.php?command=request')
-    @OPENTDB_API_TOKEN = API_KEY_REQUEST.token
+    api_token_response = HTTParty.get('https://opentdb.com/api_token.php?command=request')
+    @OPENTDB_API_TOKEN = api_token_response.token
 
     # reset API token
     HTTParty.get(@OPENTB_API_TOKEN_RESET)
