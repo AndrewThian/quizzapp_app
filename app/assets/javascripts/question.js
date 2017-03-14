@@ -14,15 +14,15 @@ $(document).on('turbolinks:load', function () {
   gamePlayingPage.hide()
   gameNextPage.hide()
 
-  let startButton = $('#ready_button')
-  let restartButton = $('#restart_button')
-  let nextButton = $('#next_button')
-  let cheatButton = $('#cheat')
-  let submitButton = $('#submit_highscore')
+  var startButton = $('#ready_button')
+  var restartButton = $('#restart_button')
+  var nextButton = $('#next_button')
+  var cheatButton = $('#cheat')
+  var submitButton = $('#submit_highscore')
 
   cheatButton.hide()
 
-  let id = $('#quiz_main_div').attr('data-category-id')
+  var id = $('#quiz_main_div').attr('data-category-id')
   var highscore = 0
   var timer = 100
   var interval = 0
@@ -56,11 +56,11 @@ $(document).on('turbolinks:load', function () {
         // console.log('inc answers pushed', ele.incorrect_answers)
         correctAnswers.push(ele.correct_answer)
         // console.log('cor answer pushed', ele.correct_answer)
-        let currentIncAnswerArr = ele.incorrect_answers
-        let correctAnswer = ele.correct_answer
-        let correctAnswerArr = []
+        var currentIncAnswerArr = ele.incorrect_answers
+        var correctAnswer = ele.correct_answer
+        var correctAnswerArr = []
         correctAnswerArr.push(correctAnswer)
-        let concatAnswers = currentIncAnswerArr.concat(correctAnswerArr)
+        var concatAnswers = currentIncAnswerArr.concat(correctAnswerArr)
         // console.log('compiled answers', concatAnswers)
         // console.log(concatAnswers)
         shuffle(concatAnswers)

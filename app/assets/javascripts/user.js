@@ -1,18 +1,18 @@
 /* globals $ Materialize google */
 
 $(document).on('turbolinks:load', function () {
-  let statsTable = $('#stats_table')
-  let statsChart = $('#donutchart')
-  let id = $('#stats_table').attr('data-user-id')
-  let currentQuestions = $('#overall_question_progress').attr('data-com-qn')
+  var statsTable = $('#stats_table')
+  var statsChart = $('#donutchart')
+  var id = $('#stats_table').attr('data-user-id')
+  var currentQuestions = $('#overall_question_progress').attr('data-com-qn')
 
-  let listButton = $('#list_button')
-  let chartButton = $('#chart_button')
+  var listButton = $('#list_button')
+  var chartButton = $('#chart_button')
 
   var categoryData = []
 
   function questionComplete () {
-    let completedPercentage = (currentQuestions / 1800) * 100
+    var completedPercentage = (currentQuestions / 1800) * 100
     $('#overall_question_progress').css('width', completedPercentage + '%')
     $('#percentage-done').html(Math.ceil(completedPercentage) + '%')
   }
