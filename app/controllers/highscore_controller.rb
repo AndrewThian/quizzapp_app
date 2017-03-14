@@ -7,7 +7,7 @@ class HighscoreController < ApplicationController
     user_category = UserCategory.where(user_id: current_user.id, category_id: category_id)
     # debugger
 
-    if user_category[0].highscore > highscore
+    if user_category[0].highscore <= highscore
       user_category[0].update(highscore: highscore)
     end
   end
