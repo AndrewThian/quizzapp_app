@@ -1,0 +1,81 @@
+<!-- questions is the number of questions in the category -->
+<!-- completed_qns is the number questions user compeleted -->
+<!-- user_details is the user's current exp in that table-->
+
+<ul class="breadcrumb">
+  <li><%= link_to 'Home',root_path %></li>
+  <li><%= link_to 'Categories',categories_path %></li>
+  <li><span class="black-text"><%= @category.name %></span></li>
+</ul>
+
+<h2><%= @category.name %></h2>
+
+<div class="row">
+  <div class="col s4">
+    <div class="card" id="show_user_details">
+      <div class="card-image" id="category_card_image">
+        <%= image_tag(@category.icon_source, :class => "category_icon") %>
+      </div>
+      <div class="card-content">
+        <span class="card-title">Your stats:</span>
+        <table class="centered">
+          <thead>
+            <tr>
+              <th>Completed</th>
+              <th>Total Qns</th>
+              <th>Exp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= @completed_qns.length %></td>
+              <td><%= @questions %></td>
+              <td><%= @user_details.category_exp %></td>
+            </tr>
+          </tbody>
+        </table>
+        <%= link_to category_questions_path(@category.id), class: "waves-effect waves-light btn" do %>
+          <i class="material-icons left">play_arrow</i><span>Play</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col s8">
+    <div class="card" id="show_global_details">
+      <div class="card-content">
+        <ul class="tabs">
+          <li class="tab"><a class="active" href="#show_ranking">Ranking</a></li>
+          <li class="tab"><a href="#show_activity">Activity</a></li>
+        </ul>
+        <div class="divider"></div>
+        <table class="highlight striped centered">
+          <thead>
+            <tr>
+              <th>HighScore</th>
+              <th>Exp</th>
+              <th>User</th>
+              <th>Title</th>
+              <th>Last Played</th>
+            </tr>
+            <tbody id="list_hightscores">
+              <% @highscores.each do |score| %>
+                <tr class="highscore_table">
+                  <td><%= score.highscore %></td>
+                  <td><%= score.category_exp %></td>
+                  <td><%= link_to score.user.name, user_path(score.user_id) %></td>
+                  <td><%= score.user.title %></td>
+                  <td><%= score.user.updated_at.in_time_zone("Singapore").strftime("%e %b %Y %l:%M %p") %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+</script>

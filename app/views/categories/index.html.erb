@@ -1,0 +1,30 @@
+<ul class="breadcrumb">
+  <li><%= link_to 'Home',root_path %></li>
+  <li><span class="black-text">Categories</span></li>
+</ul>
+
+<h2>Categories Galore!</h2>
+
+<div class="row">
+  <% @categories.each do |category| %>
+    <div class="col s2 m2" id="category_main_card">
+      <div class="card">
+        <div class="card-image" id="category_main_icons">
+          <%= image_tag(category.icon_source) %>
+        </div>
+      </div>
+      <div class="center-align">
+        <%= link_to category_path(category.id) do %>
+            <p>Enter</p>
+        <% end %>
+        <p class="category_card_name"><%= category.name %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  $.getJSON('/categories', function (data) {
+    console.log(data)
+  })
+</script>

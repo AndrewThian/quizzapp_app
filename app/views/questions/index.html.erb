@@ -1,0 +1,78 @@
+<ul class="breadcrumb">
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to 'Main categories', categories_path %></li>
+  <li><%= link_to 'Category', category_path(@category) %></li>
+  <li><span class="black-text"><%= @category.name %></span></li>
+</ul>
+
+<div id="quiz_main_div" data-category-id="<%= @category.id %>">
+  <div class="progress" id="timer_bar">
+    <div class="determinate" style="width: 100%"></div>
+  </div>
+
+  <span id="highscore">Highscore:</span>
+
+  <div id="quiz_ready_page">
+    <div id="quiz_category_icon" class="z-depth-1">
+      <%= image_tag(@category.icon_source) %>
+    </div>
+    <div id="quiz_ready_div">
+      <h4><%= @category.name %> category</h4>
+      <h1>ARE YOU READY?</h1>
+      <p>Here we go!</p>
+      <a class="waves-effect waves-light btn-large" id="ready_button">
+        <i class="material-icons right">play_arrow</i>
+        Start
+      </a>
+    </div>
+  </div>
+
+  <div id="quiz_playing_page">
+    <div id="question_div">
+      <h4>Question</h4>
+      <div id="add_question"></div>
+    </div>
+    <div style="margin: 20px 0 20px 0"></div>
+    <div id="button_div">
+      <button class="answer_button0 waves-effect waves-light btn-large" id="answer">Answer</button>
+      <button class="answer_button1 waves-effect waves-light btn-large" id="answer">Answer</button>
+      <button class="answer_button2 waves-effect waves-light btn-large" id="answer">Answer</button>
+      <button class="answer_button3 waves-effect waves-light btn-large" id="answer">Answer</button>
+    </div>
+  </div>
+
+  <div id="quiz_game_end">
+    <div id="quiz_category_icon" class="z-depth-1">
+      <%= image_tag(@category.icon_source) %>
+    </div>
+    <div id="quiz_end_div">
+      <h4 id="failure_message">Woops!</h4>
+      <h1>Sorry, please try again..</h1>
+      <p>Restart?</p>
+      <div id="end_game_buttons">
+        <button class="waves-effect waves-light btn-large" id="restart_button"><i class="material-icons right">play_arrow</i>Restart</button>
+        <button class="waves-effect waves-light btn-large" id="submit_highscore">Submit highscore</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="quiz_next_page">
+    <div id="quiz_category_icon" class="z-depth-1">
+      <%= image_tag(@category.icon_source) %>
+    </div>
+    <div id="quiz_next_div">
+      <h4 id="current_question">Question: </h4>
+      <h1>ARE YOU READY?</h1>
+      <p>Here we go!</p>
+      <a class="waves-effect waves-light btn-large" id="next_button">
+        <i class="material-icons right">play_arrow</i>
+        Next
+      </a>
+    </div>
+  </div>
+
+  <button id="cheat"></button>
+</div>
+
+<script type="text/javascript">
+</script>
