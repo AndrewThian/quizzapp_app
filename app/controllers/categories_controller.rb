@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
 
+  before_action :check_user, except: [:index]
+
   def index
     @category = Category.new
     @categories = Category.order('categories.name ASC').all
@@ -42,6 +44,15 @@ class CategoriesController < ApplicationController
         user_details: @user_details,
         completed_qns: @completed_qns
       }}
+    end
+  end
+
+  private
+
+  def check_user
+    if !current_user
+      flash[:danger] = 'Please login in to use the service!'
+      redirect_to login_path
     end
   end
 end
