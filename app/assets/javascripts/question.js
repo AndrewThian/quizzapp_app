@@ -155,7 +155,7 @@ $(document).on('turbolinks:load', function () {
         $('.answer_button' + [i]).on('click', function () {
           $.ajax({
             type: 'PUT',
-            url: '/categories/' + id + '/questions/' + questionIDs[currentQuestion]
+            url: '/categories/' + id +'/questions/' + questionIDs[currentQuestion]
           }).success(function (json) {
             // console.log('success')
             Materialize.toast('Correct!')
